@@ -7,14 +7,14 @@ create procedure filltable(IN records int, gap int, startingat int)
 Begin
 declare i int;
 set i = 0;
-Start transaction;
+
 while i < records do
 
 insert into origin
 VALUES(null, (startingat+gap*i),((startingat-1)+gap+gap*i));
 SET i = i + 1;
 end while;
-commit;
+
 END$$
 DELIMITER ;
 
